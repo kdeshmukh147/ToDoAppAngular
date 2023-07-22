@@ -1,0 +1,18 @@
+<div>
+
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="mb-3">
+          <label for="titleId" class="form-label">Title</label>
+          <input type="text" ngModel class="form-control" id="titleId" name="title" required>
+          
+        </div>
+        <div class="mb-3">
+            <label for="descId" class="form-label">Desc</label>
+            <input type="text" ngModel class="form-control" id="descId" name="desc">
+            
+          </div>
+       
+        <button type="submit" class="btn btn-primary">Add ToDo</button>
+      </form>
+
+</div>
