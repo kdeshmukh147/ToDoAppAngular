@@ -1,12 +1,20 @@
-<div class="my-3">
-    
-    <h3 [ngClass]="{'strick': inputTodo.active}">{{inputTodo.title}}</h3>
-    <p>{{inputTodo.desc}}</p>
 
-    <div class="mb-3 form-check">
+
+
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      
+      
+      <h6 class="card-text" [ngClass]="{'strick': inputTodo.active}">{{inputTodo.title}}</h6>
+      
+      <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="todoCheckbox{{inputTodo.sno}}" (click)="onCheckboxClick(inputTodo)"
         [checked]="inputTodo.active">
         <label class="form-check-label" for="todoCheckbox{{inputTodo.sno}}">Done</label>
       </div>
-   <button class="btn btn-danger" (click)="btnOnclick(inputTodo)"  > delete </button>
-</div>
+      <button class="btn btn-danger" (click)="btnOnclick(inputTodo)"  > delete </button>
+      
+    </div>
+  </div>
+

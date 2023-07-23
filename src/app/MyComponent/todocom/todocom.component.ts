@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { clTodo } from 'src/Model/clTodo';
 
 @Component({
@@ -11,14 +12,18 @@ export class TodocomComponent {
   todoArr!:clTodo[];
   localItem:string|null;
 
+  constructor(private router: Router) {
 
-  deleteTodo(todo:clTodo)
-  {
-    const index = this.todoArr.indexOf(todo);
-    this.todoArr.splice(index,1);
-    localStorage.setItem("todoData",JSON.stringify(this.todoArr))
+    this.localItem=localStorage.getItem("todoData");
+
+    if(this.localItem == null)
+    this.todoArr=[]
+    else
+    this.todoArr=JSON.parse(this.localItem);
+    
 
   }
+  
 
   addTodo(todo:clTodo){
     console.log("todo added")
@@ -33,29 +38,16 @@ export class TodocomComponent {
 
     this.todoArr.push(todo)
    
-localStorage.setItem("todoData",JSON.stringify(this.todoArr))
-  }
-
-  checkboxClick(todo:clTodo){
-    const index = this.todoArr.indexOf(todo);
-    this.todoArr[index].active= !this.todoArr[index].active
-    localStorage.setItem("todoData",JSON.stringify(this.todoArr))
+localStorage.setItem("todoData",JSON.stringify(this.todoArr));
+this.router.navigate(['/home']);
 
   }
+
+
 
   /**
    *
    */
-  constructor() {
-
-    this.localItem=localStorage.getItem("todoData");
-
-    if(this.localItem == null)
-    this.todoArr=[]
-    else
-    this.todoArr=JSON.parse(this.localItem);
-    
-
-  }
+ 
 
 }

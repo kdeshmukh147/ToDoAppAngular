@@ -3,14 +3,35 @@
 <div class="container">
 
     <div class="container">
-        <h3 class="text-center">This IS TODOApp</h3>
+        <h3 class="text-center">ToDo List</h3>
         <app-addtodo (outAddTodo)="addTodo($event)">
 
         </app-addtodo>
     </div>
 
-    <div *ngFor="let item of todoArr">
-    
-        <app-todo-item [inputTodo]="item"  (outputTodo)="deleteTodo($event)"  (outputCheckbox)="checkboxClick($event)" ></app-todo-item>
-    </div>
+    <router-outlet>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+         
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLinkActive="active" ariaCurrentWhenActive="page"  routerLink="/home" [queryParams]="{type:'all'}">All</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/home"  [queryParams]="{type:'pending'}">Pending</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/home" [queryParams]="{type:'completed'}">Completed</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </router-outlet>
+      
+
+
 </div>

@@ -1,18 +1,21 @@
 <div>
 
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-        <div class="mb-3">
-          <label for="titleId" class="form-label">Title</label>
-          <input type="text" ngModel class="form-control" id="titleId" name="title" required>
-          
+    <form class="p-2" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="row-6 mb-3 ">
+          <div class="container-fluid">
+
+            <label class="col-sm-1" for="titleId" >Title</label>
+            <input class="col-sm-4" type="text" ngModel  id="titleId" name="title" required>         
+          <button type="submit" class="btn btn-primary m-2">Add ToDo</button>
         </div>
-        <div class="mb-3">
+      </div>
+        <!-- <div class="mb-3">
             <label for="descId" class="form-label">Desc</label>
             <input type="text" ngModel class="form-control" id="descId" name="desc">
             
-          </div>
+          </div> -->
        
-        <button type="submit" class="btn btn-primary">Add ToDo</button>
+       
       </form>
 
 </div>

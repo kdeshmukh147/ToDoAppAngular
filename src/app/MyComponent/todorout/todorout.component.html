@@ -1,0 +1,7 @@
+
+<div class="row pt-4" >
+<div class="col-sm-4"  *ngFor="let item of todoArr">
+    
+    <app-todo-item [inputTodo]="item"  (outputTodo)="deleteTodo($event)"  (outputCheckbox)="checkboxClick($event)" ></app-todo-item>
+</div>
+</div>
